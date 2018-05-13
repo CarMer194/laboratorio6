@@ -1,5 +1,6 @@
 package com.henriquez.laboratorio6;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -21,6 +22,7 @@ public class PlanetViewPagerAdapter extends FragmentPagerAdapter{
         fragmentList = new ArrayList<>();
     }
 
+
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);
@@ -29,6 +31,11 @@ public class PlanetViewPagerAdapter extends FragmentPagerAdapter{
     @Override
     public int getCount() {
         return fragmentList.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titleList.get(position);
     }
 
     public void addItem(String title, Fragment fragment){
