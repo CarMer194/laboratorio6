@@ -9,7 +9,7 @@ public class Planeta  {
     private String imagen;
     private String informacion;
     private String ruta;
-    boolean favorito;
+    boolean favorito=false;
 
     public Planeta() {
     }

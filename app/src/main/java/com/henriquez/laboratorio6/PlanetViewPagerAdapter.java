@@ -42,4 +42,9 @@ public class PlanetViewPagerAdapter extends FragmentPagerAdapter{
         titleList.add(title);
         fragmentList.add(fragment);
     }
+
+    public interface FragmentLifeCycle{
+        public void onPauseFragment();
+        public void onResumeFragment();
+    }
 }
