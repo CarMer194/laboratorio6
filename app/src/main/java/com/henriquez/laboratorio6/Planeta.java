@@ -67,4 +67,5 @@ public class Planeta  {
     public void setFavorito(boolean fav){
         this.favorito=fav;
     }
+
 }

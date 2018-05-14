@@ -24,6 +24,8 @@ public class PlanetsFragment extends Fragment implements PlanetViewPagerAdapter.
     RecyclerView recyclerView;
     ArrayList<Planeta> planetList;
     PlanetsListAdapter planetsListAdapter;
+    boolean favorito=false;
+    ArrayList<Planeta> aux;
 
     public PlanetsFragment(ArrayList<Planeta> planetList) {
         this.planetList = planetList;
@@ -35,10 +37,12 @@ public class PlanetsFragment extends Fragment implements PlanetViewPagerAdapter.
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        setList();
         View view = inflater.inflate(R.layout.planet_list,container,false);
         System.out.println("planeta"+planetList.get(0).getNombre());
 
-        planetsListAdapter = new PlanetsListAdapter(getContext(),planetList);
+        planetsListAdapter = new PlanetsListAdapter(getContext(),planetList,aux);
 
         recyclerView=view.findViewById(R.id.recycler1);
         recyclerView.setAdapter(planetsListAdapter);
@@ -54,6 +58,36 @@ public class PlanetsFragment extends Fragment implements PlanetViewPagerAdapter.
 
     @Override
     public void onResumeFragment() {
+        setList();
+
+        planetsListAdapter = new PlanetsListAdapter(getContext(),planetList,aux);
+        recyclerView.setAdapter(planetsListAdapter);
+
+
+    }
+
+    public PlanetsListAdapter getPlanetsListAdapter() {
+        return planetsListAdapter;
+    }
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
+
+    public void setList(){
+        aux = new ArrayList<>();
+        System.out.println("entro aqui");
+        System.out.println(planetList.get(0).isFavorito() + "eso");
+        if (favorito){
+            for (int i=0;i<planetList.size();i++){
+                if (planetList.get(i).isFavorito()){
+                    aux.add(planetList.get(i));
+                }
+            }
+            System.out.println(aux.size()+" esto es el aux");
+        }
+        else {
+            aux = planetList;
+        }
 
     }
 }

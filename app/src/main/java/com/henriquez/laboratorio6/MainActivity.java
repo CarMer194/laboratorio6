@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         planetsFragment = new PlanetsFragment(planetas);
         favoriteFragment = new PlanetsFragment(planetas);
+        favoriteFragment.setFavorito(true);
+
 
         toolbar = findViewById(R.id.toolbar1);
         toolbar.setTitle(R.string.app_name);
