@@ -1,6 +1,7 @@
 package com.henriquez.laboratorio6;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,7 +45,9 @@ public class PlanetsListAdapter extends RecyclerView.Adapter<PlanetsListAdapter.
         holder.nombre.setText(aux.get(position).getNombre());
         System.out.println("este es el nombre"+ aux.get(position).getNombre());
         holder.informacion.setText(aux.get(position).getInformacion());
-        String temp = planetList.get(position).getImagen();
+        Uri uri = Uri.parse(aux.get(position).getRuta());
+        holder.imagen.setImageURI(uri);
+        //String temp = planetList.get(position).getImagen();
         holder.boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

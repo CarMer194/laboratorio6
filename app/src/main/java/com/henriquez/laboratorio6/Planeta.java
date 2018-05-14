@@ -18,6 +18,7 @@ public class Planeta  {
         this.nombre = nombre;
         this.imagen = imagen;
         this.informacion = informacion;
+        setRuta(imagen);
     }
 
     public String getNombre() {
@@ -48,8 +49,8 @@ public class Planeta  {
         return ruta;
     }
 
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public void setRuta(String imagen) {
+        ruta = "android.resource://" + "com.Carlos.laboratorio6" + "/drawable/" + imagen;
     }
 
     public void setFavorito() {
